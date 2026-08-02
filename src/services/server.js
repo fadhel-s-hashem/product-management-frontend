@@ -1,12 +1,12 @@
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}`;
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}`
 
 const index = async () => {
   const res = await fetch(BASE_URL)
   
+  const data = await res.json()
   if (!res.ok) {
     throw new Error(`${res.status}: ${data.message}`)
   }
-  const data = await res.json()
 
   return data
 }
@@ -30,4 +30,10 @@ const create = async (formData) => {
     },
     body: JSON.stringify(formData),
   })
+}
+
+export {
+  index,
+  show,
+  create,
 }
