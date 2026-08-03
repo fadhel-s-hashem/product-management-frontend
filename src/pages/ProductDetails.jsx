@@ -23,6 +23,9 @@ const ProductDetails = (props) => {
     const handleDelete = async () => {
         await props.deleteProduct(productId)
         navigate('/products')
+         if (props.isLoading) {
+        return <p>Loading product...</p>
+    }
 
     }
 
@@ -40,8 +43,13 @@ const ProductDetails = (props) => {
                <p> quantity :{product.quantity}</p>
                <p className="description"> description:{product.description}</p>
                </div>
-               <button onClick={handleDelete}>Delete Product</button>
 
+            <div className="detailButtons">
+               <button onClick={handleDelete}>Delete Product</button>
+               <Link to={`/products/${productId}/edit`}>
+               <button> Edit {product.title}</button>
+               </Link>
+            </div>
         </div>
     )
 }

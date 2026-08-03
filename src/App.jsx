@@ -7,6 +7,7 @@ import NavBar from './components/NavBar'
 import ProductList from './pages/ProductList'
 import ProductForm from './pages/ProductForm'
 import ProductDetails from './pages/ProductDetails'
+import UpdateProduct from './pages/UpdateProduct'
 
 import './App.css'
 
@@ -48,6 +49,14 @@ const App = () => {
 
   }
 
+  const updateProduct = async (productId, formData) => {
+    const updatedStudent= await productService.update(productId, formData)
+
+    const updatedProdutArray = products.map((product) => (
+      product._id === productId ? updatedStudent : product
+    ))
+  }
+
 
   return (
     <main>
@@ -58,11 +67,14 @@ const App = () => {
 
         <Route path='/products' element={<ProductList products={products}/>}/>
 
-        <Route path='/products/new' element={<ProductForm addProduct={addProduct}/>}/>
+        <Route path='/products/new' element={<ProductForm addProduct={addProduct} isLoading={isLoading}/>}/>
 
         <Route path='/products/:productId' element={<ProductDetails products={products} isLoading={isLoading} deleteProduct={deleteProduct}/>}/>
+
+        <Route path='/products/:productId/edit' element={<UpdateProduct products={products} isLoading={isLoading} updateProduct={updateProduct}/>}/>
       
       </Routes>
+      
 
       
   

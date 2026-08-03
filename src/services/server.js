@@ -46,9 +46,27 @@ const deleteProduct = async (id) => {
   return data
 }
 
+const update = async (id, formData) => {
+  const res = await fetch(`${BASE_URL}/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  })
+
+  if (!res.ok) {
+    throw new Error(`${res.status}: ${data.message}`)
+  }
+  
+  const data = await res.json()
+  return data
+}
+
 export {
   index,
   show,
   create,
   deleteProduct,
+  update,
 }

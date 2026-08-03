@@ -9,7 +9,7 @@ if (props.isLoading) {
 
     return(
         <div>
-           
+           <br />
             <>
             
         {props.products.map((product) => (
