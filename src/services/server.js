@@ -32,8 +32,23 @@ const create = async (formData) => {
   })
 }
 
+const deleteProduct = async (id) => {
+  const res = await fetch(`${BASE_URL}/${id}`, {
+    method: 'DELETE',
+  })
+
+  
+  if (!res.ok) {
+    throw new Error(`${res.status}: ${data.message}`)
+  }
+  
+  const data = await res.json()
+  return data
+}
+
 export {
   index,
   show,
   create,
+  deleteProduct,
 }

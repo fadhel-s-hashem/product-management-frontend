@@ -3,6 +3,10 @@ import { Link } from "react-router"
 const ProductList = (props) => {
 console.log(props.products);
 
+if (props.isLoading) {
+        return <p>Loading product...</p>
+    }
+
     return(
         <div>
            

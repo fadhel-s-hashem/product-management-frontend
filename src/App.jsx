@@ -39,6 +39,15 @@ const App = () => {
     setProducts([...products, newProduct])
   }
 
+  const deleteProduct = async (productId) => {
+    await productService.deleteProduct(productId)
+    // use filter to delete
+    const filteredProduct = products.filter((product) => {
+    product._id !== productId
+    })
+
+  }
+
 
   return (
     <main>
@@ -51,7 +60,7 @@ const App = () => {
 
         <Route path='/products/new' element={<ProductForm addProduct={addProduct}/>}/>
 
-        <Route path='/products/:productId' element={<ProductDetails products={products} isLoading={isLoading}/>}/>
+        <Route path='/products/:productId' element={<ProductDetails products={products} isLoading={isLoading} deleteProduct={deleteProduct}/>}/>
       
       </Routes>
 
