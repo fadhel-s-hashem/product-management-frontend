@@ -5,6 +5,7 @@ import * as productService from './services/server'
 
 import NavBar from './components/NavBar'
 import ProductList from './pages/ProductList'
+import ProductForm from './pages/ProductForm'
 
 import './App.css'
 
@@ -46,8 +47,12 @@ const App = () => {
         <Route path="/" element={<h2>Welcome to the Students Directory</h2>} />
 
         <Route path='/products' element={<ProductList products={products}/>}/>
+
+        <Route path='/products/new' element={<ProductForm addProduct={addProduct}/>}/>
       
       </Routes>
+
+      
   
     </main>
   )
