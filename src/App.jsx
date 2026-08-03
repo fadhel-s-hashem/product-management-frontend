@@ -19,7 +19,7 @@ const App = () => {
   const fetchAllProduct = async () => {
     try {
       const productData = await productService.index()
-      console.log(productData);
+      console.log(productData,"product data");
       setProducts(productData)
       
     } catch (error) {
