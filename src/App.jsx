@@ -55,6 +55,8 @@ const App = () => {
     const updatedProdutArray = products.map((product) => (
       product._id === productId ? updatedStudent : product
     ))
+
+    setProducts(updatedProdutArray) // to fix the need of relode
   }
 
 

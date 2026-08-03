@@ -40,7 +40,7 @@ const UpdateProduct = (props) => {
     const handleSubmit = async (event) => {
         event.preventDefault()
          // here add (updateProduct) instead of addProduct and (productId) also
-        await props.updateProduct(formData , productId)// make sure updateProduct accepts productId
+        await props.updateProduct( productId,  formData)// make sure updateProduct accepts productId
         // to go back to index
         navigate('/products')
     }
