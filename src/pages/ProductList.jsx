@@ -5,9 +5,20 @@ console.log(props.products);
 
     return(
         <div>
+           
             <>
+            
         {props.products.map((product) => (
-          <h1>{product.title}</h1>
+            <>
+            <Link to={`/products/${product._id}`}>
+            <button>
+          <h2>{product.title}</h2>
+        
+          <p> Price: {product.price} </p>
+          <p> category: {product.category} </p>
+          </button>
+          </Link>
+          </>
         ))}
          </>
           
